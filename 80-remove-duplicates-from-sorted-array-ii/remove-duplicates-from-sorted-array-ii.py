@@ -15,4 +15,3 @@ class Solution:
             for j in range(count[i]):
                 list1.append(stack[i])
         nums[:]=list1
-        return len(list1)
