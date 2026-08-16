@@ -10,9 +10,7 @@ class Solution:
         inter=[0]*len(height)
         for i in range(len(height)):
             inter[i]=min(maxleft[i],maxright[i])
-        res=[]
+        res=[0]*len(height)
         for i in range(len(height)):
-            temp=inter[i]-height[i]
-            if temp>0:
-                res.append(temp)
+            res[i]=max(res[i],inter[i]-height[i])
         return sum(res)
