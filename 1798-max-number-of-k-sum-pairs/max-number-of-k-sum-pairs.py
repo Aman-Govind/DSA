@@ -1,17 +1,12 @@
 class Solution:
     def maxOperations(self, nums: List[int], k: int) -> int:
-        nums.sort()
-        count=0
-        i=0
-        j=len(nums)-1
-        while(i<j):
-            if nums[i]+nums[j]==k:
-                i+=1
-                j-=1
-                count+=1
-            elif nums[i]+nums[j]<k:
-                i+=1
-            else:
-                j-=1
-        return count
-            
+       hashmap={}
+       count=0
+       for i in nums:
+        num=k-i
+        if hashmap.get(num,0)>0:
+            count+=1
+            hashmap[num]-=1
+        else:
+            hashmap[i]=hashmap.get(i,0)+1
+       return count
