@@ -6,16 +6,14 @@
 #         self.right = right
 class Solution:
     def getAllElements(self, root1: Optional[TreeNode], root2: Optional[TreeNode]) -> List[int]:
-        
         res = []
-
         def inorder(node):
             if not node:
-                return
+                return 
             inorder(node.left)
             res.append(node.val)
             inorder(node.right)
-        
+
         inorder(root1)
         inorder(root2)
         return sorted(res)
